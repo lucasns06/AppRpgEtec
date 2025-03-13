@@ -16,6 +16,7 @@ namespace AppRpgEtec.ViewModels.Usuarios
         public ICommand AutenticarCommand { get; set; }
         public ICommand RegistrarCommand { get; set; }
         public ICommand DirecionarCadastroCommand { get; set; }
+        
         public UsuarioViewModel()
         {
             uService = new UsuarioService();
@@ -27,6 +28,7 @@ namespace AppRpgEtec.ViewModels.Usuarios
             RegistrarCommand = new Command(async () => await RegistrarUsuario());
             DirecionarCadastroCommand = new Command(async () => await DirecionarParaCadastro());
         }
+        
         #region Métodos
         public async Task RegistrarUsuario()
         {
@@ -77,6 +79,7 @@ namespace AppRpgEtec.ViewModels.Usuarios
             }
         }
         #endregion
+        
         public async Task AutenticarUsuario()
         {
             try

@@ -16,7 +16,8 @@ namespace AppRpgEtec.ViewModels.Usuarios
         public ICommand AutenticarCommand { get; set; }
         public ICommand RegistrarCommand { get; set; }
         public ICommand DirecionarCadastroCommand { get; set; }
-        
+        public ICommand DirecionarLoginCommand { get; set; }
+
         public UsuarioViewModel()
         {
             uService = new UsuarioService();
@@ -27,6 +28,7 @@ namespace AppRpgEtec.ViewModels.Usuarios
             AutenticarCommand = new Command(async () => await AutenticarUsuario());
             RegistrarCommand = new Command(async () => await RegistrarUsuario());
             DirecionarCadastroCommand = new Command(async () => await DirecionarParaCadastro());
+            DirecionarLoginCommand = new Command(async () => await DirecionarParaLogin());
         }
         
         #region Métodos
@@ -111,7 +113,7 @@ namespace AppRpgEtec.ViewModels.Usuarios
             catch (Exception ex)
             {
                 await Application.Current.MainPage
-                       .DisplayAlert("Informação", ex.Message + " Detalhes: " + ex.InnerException, "Ok");
+                       .DisplayAlert("Erro", ex.Message + " Detalhes: " + ex.InnerException, "Ok");
             }
         }
         public async Task DirecionarParaCadastro()
@@ -119,6 +121,17 @@ namespace AppRpgEtec.ViewModels.Usuarios
             try
             {
                 await Application.Current.MainPage.Navigation.PushAsync(new CadastroView());
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Informação", ex.Message + "Detalhes: " + ex.InnerException, "Ok");
+            }
+        }
+        public async Task DirecionarParaLogin()
+        {
+            try
+            {
+                await Application.Current.MainPage.Navigation.PushAsync(new LoginView());
             }
             catch (Exception ex)
             {

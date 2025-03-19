@@ -26,7 +26,7 @@ namespace AppRpgEtec.ViewModels.Personagens
             try
             {
                 Personagens = await pService.GetPersonagensAsync();
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Personagens));
             }
             catch (Exception ex)
             {

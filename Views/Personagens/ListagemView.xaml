@@ -9,10 +9,17 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Nome}" FontSize="18" FontAttributes="Bold"/>
-                                <Label Text="{Binding PontosVida}" FontSize="14"/>
-                            </StackLayout>
+                            <HorizontalStackLayout>
+                                <Image
+                                    Source="person.png"
+                                    HeightRequest="20"
+                                    Aspect="AspectFit"
+                                    />
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Nome}" FontSize="18" FontAttributes="Bold"/>
+                                    <Label Text="{Binding PontosVida}" FontSize="14"/>
+                                </StackLayout>
+                            </HorizontalStackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

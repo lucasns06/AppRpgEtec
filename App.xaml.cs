@@ -5,12 +5,7 @@
         public App()
         {
             InitializeComponent();
-        }
-
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            var window = new Window(new NavigationPage(new Views.Usuarios.LoginView()));
-            return window;
+            MainPage = new NavigationPage(new Views.Usuarios.LoginView());
         }
     }
 }

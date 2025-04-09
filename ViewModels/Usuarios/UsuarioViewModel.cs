@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using AppRpgEtec.Models;
 using AppRpgEtec.Services.Usuarios;
+using AppRpgEtec.Views.Armas;
 using AppRpgEtec.Views.Personagens;
 using AppRpgEtec.Views.Usuarios;
 
@@ -14,7 +15,6 @@ namespace AppRpgEtec.ViewModels.Usuarios
     public class UsuarioViewModel : BaseViewModel
     {
         private UsuarioService uService;
-        private bool isBusy;
         public ICommand AutenticarCommand { get; set; }
         public ICommand RegistrarCommand { get; set; }
         public ICommand DirecionarCadastroCommand { get; set; }
@@ -22,7 +22,6 @@ namespace AppRpgEtec.ViewModels.Usuarios
 
         public UsuarioViewModel()
         {
-            IsBusy = false;
             uService = new UsuarioService();
             InicializarCommands();
         }
@@ -83,25 +82,12 @@ namespace AppRpgEtec.ViewModels.Usuarios
                 OnPropertyChanged();
             }
         }
-        public bool IsBusy
-        {
-            get => isBusy;
-            set
-            {
-                if (isBusy != value)
-                {
-                    isBusy = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
         #endregion
 
         public async Task AutenticarUsuario()
         {
             try
             {
-                isBusy = true;
                 Usuario u = new Usuario();
                 u.Username = login;
                 u.PasswordString = senha;
@@ -131,10 +117,6 @@ namespace AppRpgEtec.ViewModels.Usuarios
             {
                 await Application.Current.MainPage
                        .DisplayAlert("Erro", ex.Message + " Detalhes: " + ex.InnerException, "Ok");
-            }
-            finally
-            {
-                isBusy = false;
             }
         }
         public async Task DirecionarParaCadastro()

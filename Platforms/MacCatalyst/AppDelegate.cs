@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace AppRpgEtec
+namespace AppRpgEtec.Platforms.MacCatalyst
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

@@ -1,12 +1,12 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace AppRpgEtec
+namespace AppRpgEtec.Platforms.Android
 {
-    [Application(UsesCleartextTraffic=true)]
+    [Application(UsesCleartextTraffic = true)]
     public class MainApplication : MauiApplication
     {
-        public MainApplication(IntPtr handle, JniHandleOwnership ownership)
+        public MainApplication(nint handle, JniHandleOwnership ownership)
             : base(handle, ownership)
         {
         }

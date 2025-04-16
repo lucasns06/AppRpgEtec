@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace AppRpgEtec
+namespace AppRpgEtec.Platforms.iOS
 {
     public class Program
     {

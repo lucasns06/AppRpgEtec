@@ -2,6 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppRpgEtec.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="FrameOptions" TargetType="Frame">
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="HasShadow" Value="True" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <VerticalStackLayout Padding="25" Spacing="30">
             <Frame
@@ -19,6 +28,37 @@
                     </FlexLayout>
                 </Grid>
             </Frame>
+            <Label Text="Este App oferece recursos para" FontAttributes="Bold" FontSize="Medium"/>
+            <ScrollView Orientation="Horizontal">
+                <HorizontalStackLayout>
+                    <Frame Style="{StaticResource FrameOptions}" Padding="0"HeightRequest="{OnPlatform Android=150, iOS=140}"
+ WidthRequest="{OnPlatform Android=120, iOS=140}">
+                        <VerticalStackLayout Spacing="0" VerticalOptions="Center">
+                            <Image Source="menupersonagens.svg"/>
+                            <Label Text="Personagens" FontSize="Small"HorizontalTextAlignment="Center" Margin="10,0"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                    <Frame Style="{StaticResource FrameOptions}" Padding="0"HeightRequest="{OnPlatform Android=150, iOS=140}"
+ WidthRequest="{OnPlatform Android=120, iOS=140}">
+                        <VerticalStackLayout Spacing="30" VerticalOptions="Center">
+                            <Image Source="menuarmas.png"/>
+                            <Label Text="Armas" FontSize="Small" HorizontalTextAlignment="Center"Margin="10,0"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                    <Frame Style="{StaticResource FrameOptions}" Padding="0"HeightRequest="{OnPlatform Android=150, iOS=140}"
+ WidthRequest="{OnPlatform Android=120, iOS=140}">
+                        <VerticalStackLayout Spacing="0" VerticalOptions="Center">
+                            <Image Source="menudisputas.png"/>
+                            <Label Text="Disputas" FontSize="Small"
+HorizontalTextAlignment="Center" Margin="10,0"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </HorizontalStackLayout>
+            </ScrollView>
+            <HorizontalStackLayout Margin="10,100">
+                <Image Source="exit.svg" WidthRequest="50"/>
+                <Label Text="Sair" Margin="10,0,0,0" VerticalTextAlignment="Center" />
+            </HorizontalStackLayout
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -46,7 +46,8 @@ namespace AppRpgEtec.Services.Usuarios
         //using System.Collections.ObjectModel
         public async Task<ObservableCollection<Usuario>> GetUsuariosAsync()
         {
-            string urlComplementar = string.Format("{0}", "/GetAll"); ObservableCollection<Models.Usuario> listaUsuarios = await _request.GetAsync<ObservableCollection<Models.Usuario>>(apiUrlBase + urlComplementar, _token);
+            string urlComplementar = string.Format("{0}", "/GetAll"); 
+            ObservableCollection<Models.Usuario> listaUsuarios = await _request.GetAsync<ObservableCollection<Models.Usuario>>(apiUrlBase + urlComplementar, _token);
             return listaUsuarios;
         }
     }

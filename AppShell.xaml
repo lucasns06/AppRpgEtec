@@ -19,7 +19,7 @@
                 </Grid.RowDefinitions>
                 <FlexLayout Grid.Row="0" Direction="Row" AlignItems="Center" >
                     <Frame Padding="0" CornerRadius="40" HeightRequest="80" WidthRequest="80" >
-                        <Image/>
+                        <Image Source="has_logo_transparente.svg"/>
                     </Frame>
                     <VerticalStackLayout Padding="10,0,0,0" Spacing="0">
                         <Label Text="App RPG Etec" FontAttributes="Bold" FontSize="Medium" />

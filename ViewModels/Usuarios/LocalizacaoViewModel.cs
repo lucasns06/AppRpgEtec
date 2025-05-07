@@ -17,7 +17,7 @@ namespace AppRpgEtec.ViewModels.Usuarios
         private UsuarioService uService;
         public LocalizacaoViewModel()
         {
-            string token = Preferences.Get("Token", string.Empty);
+            string token = Preferences.Get("UsuarioToken", string.Empty);
             uService = new UsuarioService(token);
         }
         private Map meuMapa;
@@ -55,7 +55,7 @@ namespace AppRpgEtec.ViewModels.Usuarios
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Erro", ex.Message, "Ok");
+                await Application.Current.MainPage.DisplayAlert("Erro", ex.Message + ex.InnerException, "Ok");
             }
         }
         public async void ExibirUsuariosNoMapa()

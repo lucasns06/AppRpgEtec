@@ -40,7 +40,8 @@ namespace AppRpgEtec.Services.Usuarios
         public async Task<int> PutAtualizarLocalizacaoAsync(Usuario u)
         {
             string urlComplementar = "/AtualizarLocalizacao";
-            var result = await _request.PutAsync(apiUrlBase + urlComplementar, u, _token); return result;
+            var result = await _request.PutAsync(apiUrlBase + urlComplementar, u, _token); 
+            return result;
         }
 
         //using System.Collections.ObjectModel

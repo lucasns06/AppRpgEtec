@@ -95,15 +95,8 @@ namespace AppRpgEtec.ViewModels.Usuarios
 
                 Usuario uAutenticado = await uService.PostAutenticarUsuarioAsync(u);
 
-                if (!string.IsNullOrEmpty(uAutenticado.Token)) 
+                if (!string.IsNullOrEmpty(uAutenticado.Token))
                 {
-                    string mensagem = $"Bem-vindo(a) {uAutenticado.Username}.";
-
-                    Preferences.Set("UsuarioId", uAutenticado.Id);
-                    Preferences.Set("UsuarioUsername", uAutenticado.Username);
-                    Preferences.Set("UsuarioPerfil", uAutenticado.Perfil);
-                    Preferences.Set("UsuarioToken", uAutenticado.Token);
-
                     _isCheckingLocation = true;
                     _cancelTokenSource = new CancellationTokenSource();
                     GeolocationRequest request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
@@ -117,6 +110,14 @@ namespace AppRpgEtec.ViewModels.Usuarios
 
                     UsuarioService uServiceLoc = new UsuarioService(uAutenticado.Token);
                     await uServiceLoc.PutAtualizarLocalizacaoAsync(uLoc);
+
+                    string mensagem = $"Bem-vindo(a) {uAutenticado.Username}.";
+
+                    Preferences.Set("UsuarioId", uAutenticado.Id);
+                    Preferences.Set("UsuarioUsername", uAutenticado.Username);
+                    Preferences.Set("UsuarioPerfil", uAutenticado.Perfil);
+                    Preferences.Set("UsuarioToken", uAutenticado.Token);
+
 
                     await Application.Current.MainPage.DisplayAlert("Informação", mensagem, "Ok");
 

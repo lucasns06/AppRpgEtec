@@ -24,6 +24,8 @@ namespace AppRpgEtec.ViewModels.Usuarios
             FotografarCommand = new Command(Fotografar);
             SalvarImagemCommand = new Command(SalvarImagemAzure);
             AbrirGaleriaCommand = new Command(AbrirGaleria);
+
+            CarregarUsuarioAzure();
         }
         public ICommand FotografarCommand { get; }
         public ICommand SalvarImagemCommand { get; }
@@ -129,6 +131,29 @@ namespace AppRpgEtec.ViewModels.Usuarios
                 }
                 await Application.Current.MainPage.DisplayAlert("Mensagem", "Dados salvos com sucesso!", "Ok");
                 await App.Current.MainPage.Navigation.PopAsync();
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Ops", ex.Message + " Detalhes: " + ex.InnerException, "Ok");
+            }
+        }
+        public async void CarregarUsuarioAzure()
+        {
+            try
+            {
+                int usuarioId = Preferences.Get("UsuarioId", 0);
+                string fileName = $"{usuarioId}.jpg";
+                var blobClient = new BlobClient(conexaoAzureStorage, container, fileName);
+                if (blobClient.Exists())
+                {
+                    Byte[] fileBytes;
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        blobClient.DownloadTo(ms);
+                        fileBytes = ms.ToArray();
+                    }
+                    Foto = fileBytes;
+                }
             }
             catch (Exception ex)
             {

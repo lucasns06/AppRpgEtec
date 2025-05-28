@@ -12,6 +12,8 @@ namespace AppRpgEtec.ViewModels
     public class AppShellViewModel : BaseViewModel
     {
         private UsuarioService uService;
+        private static string conexaoAzureStorage = "";
+        private static string container = "arquivos";
         public AppShellViewModel()
         {
             string token = Preferences.Get("UsuarioToken", string.Empty);

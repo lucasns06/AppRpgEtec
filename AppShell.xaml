@@ -7,6 +7,7 @@
     xmlns:viewsPersonagens="clr-namespace:AppRpgEtec.Views.Personagens"
     xmlns:viewsArmas="clr-namespace:AppRpgEtec.Views.Armas"
     xmlns:viewsUsuarios="clr-namespace:AppRpgEtec.Views.Usuarios"
+    xmlns:viewsDisputas="clr-namespace:AppRpgEtec.Views.Disputas"
     Title="AppRpgEtec">
 
     <Shell.FlyoutHeaderTemplate>
@@ -48,8 +49,10 @@
             <ShellContent Title="Usuário" Route="usuario" ContentTemplate="{DataTemplate viewsUsuarios:ImagemUsuarioView}"/>
             
             <ShellContent Title="Sobre" Route="sobre" ContentTemplate="{DataTemplate local:AboutView}"/>
-            
+
             <ShellContent Title="Descrição" Route="desc" ContentTemplate="{DataTemplate local:DescriptionView}"/>
+
+            <ShellContent Title="Disputas" Route="disp" ContentTemplate="{DataTemplate viewsDisputas:ListagemView}"/>
         </Tab>
     </FlyoutItem>
     

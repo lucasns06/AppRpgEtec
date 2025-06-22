@@ -33,11 +33,15 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Text="Atacante: " Grid.Column="0" Grid.Row="0" FontAttributes="Bold" />
             <Label Text="{Binding DescricaoPersonagemAtacante}" Grid.Column="1" Grid.Row="0" TextColor="Blue" />
             <Label Text="Oponente: " Grid.Column="0" Grid.Row="1" FontAttributes="Bold" />
             <Label Text="{Binding DescricaoPersonagemOponente}" Grid.Column="1" Grid.Row="1" TextColor="Blue" />
+            <Button Text="Disputar com Arma" FontAttributes="Bold"
+                 Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                 VerticalOptions="FillAndExpand" Command="{Binding DisputaComArmaCommand}"/>
         </Grid>
     </VerticalStackLayout>
 </ContentPage>

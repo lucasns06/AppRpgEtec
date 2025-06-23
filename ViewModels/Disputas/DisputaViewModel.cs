@@ -28,6 +28,7 @@ namespace AppRpgEtec.ViewModels.Disputas
         public ICommand PesquisarPersonagensCommand { get; set; }
         public ICommand DisputaComArmaCommand { get; set; }
         public ICommand DisputaComHabilidadeCommand { get; set; }
+        public ICommand DisputaGeralCommand { get; set; }
         public DisputaViewModel()
         {
             string token = Preferences.Get("UsuarioToken", string.Empty);
@@ -42,7 +43,8 @@ namespace AppRpgEtec.ViewModels.Disputas
 
             PesquisarPersonagensCommand = new Command<string>(async (string pesquisa) => { await PesquisarPersonagens(pesquisa); });
             DisputaComArmaCommand = new Command(async () => await ExecutarDisputaArmada());
-            DisputaComHabilidadeCommand = new Command(async () => await ExecutarDisputaHabilidades());
+            DisputaGeralCommand = new Command(async () => await ExecutarDisputaGeral());
+
         }
         public async Task PesquisarPersonagens(string textoPesquisaPersonagem)
         {
@@ -182,6 +184,24 @@ namespace AppRpgEtec.ViewModels.Disputas
                     .DisplayAlert("Ops", ex.Message + " Detalhes: " + ex.InnerException, "Ok"); 
             }
         }
+        private async Task ExecutarDisputaGeral()
+        {
+            try
+            {
+                ObservableCollection<Personagem> lista = await pService.GetPersonagensAsync();
+                DisputaPersonagens.ListaIdPersonagens = lista.Select(x => x.Id).ToList();
 
+                DisputaPersonagens = await dService.PostDisputaGeralAsync(DisputaPersonagens);
+
+                string resultados = string.Join(" | ", DisputaPersonagens.Resultados);
+
+                await Application.Current.MainPage.DisplayAlert("Resultado", resultados, "Ok"); 
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage
+                    .DisplayAlert("Ops", ex.Message + " Detalhes: " + ex.InnerException, "Ok");
+            }
+        }
     }
 }

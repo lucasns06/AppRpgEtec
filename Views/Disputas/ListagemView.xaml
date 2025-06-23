@@ -36,6 +36,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Text="Atacante: " Grid.Column="0" Grid.Row="0" FontAttributes="Bold" />
             <Label Text="{Binding DescricaoPersonagemAtacante}" Grid.Column="1" Grid.Row="0" TextColor="Blue" />
@@ -52,6 +53,8 @@
             <Button Text="Disputas com Habilidades" FontAttributes="Bold"
                 Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
                 VerticalOptions="FillAndExpand" Command="{Binding DisputaComHabilidadeCommand}"/>
+            <Button Text="Disputa Geral" FontAttributes="Bold"
+ Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"  VerticalOptions="FillAndExpand" Command="{Binding DisputaGeralCommand}"/>
         </Grid>
     </VerticalStackLayout>
 </ContentPage>

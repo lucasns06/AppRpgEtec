@@ -149,7 +149,7 @@ namespace AppRpgEtec.ViewModels.Personagens
                 {
                     result = await Application.Current.MainPage.DisplayActionSheet("Opções para o personagem " + personagem.Nome,
                         "Cancelar",
-                        "Restaurar pontos de vida");
+                        "Restaurar Pontos de Vida");
                 }
                 if (result != null)
                     ProcessarOpcaoRespondidaAsync(personagem, result);

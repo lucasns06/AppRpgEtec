@@ -4,13 +4,10 @@
              x:Class="AppRpgEtec.Views.Usuarios.LoginView"
              Title="">
     <VerticalStackLayout Padding="10">
-        <Border HorizontalOptions="Center" StrokeShape="RoundRectangle 100" >
-            <Image 
-                Source="rpgimage.png"
-                MinimumWidthRequest="50"
-                MaximumWidthRequest="200"
+        <Image 
+                x:Name="rpgimage"
+                WidthRequest="250"
                 />
-        </Border>
         <Label 
             Text="Login"
             FontAttributes="Bold"

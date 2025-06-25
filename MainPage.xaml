@@ -17,7 +17,7 @@
                      HeightRequest="{OnPlatform Android=190, iOS=220}"
                      Padding="0" HasShadow="false" CornerRadius="10">
                 <Grid>
-                    <Image Source="person.svg"/>
+                    <Image x:Name="person"/>
                     <FlexLayout Direction="Row" Margin="20" AlignItems="Stretch">
                         <Label Text="RPG App" FlexLayout.Grow="1" FontAttributes="Bold" FontSize="20" VerticalTextAlignment="Center"/>
                         <FlexLayout FlexLayout.Grow="2" Direction="Column" AlignItems="End" JustifyContent="Center">
@@ -28,19 +28,24 @@
                 </Grid>
             </Frame>
             <Label Text="Este App oferece recursos para" FontAttributes="Bold" FontSize="Medium"/>
+            <Image x:Name="menuarmas"
+                                WidthRequest="40"
+                                   />
             <ScrollView Orientation="Horizontal">
                 <HorizontalStackLayout>
                     <Frame Style="{StaticResource FrameOptions}" Padding="0" HeightRequest="{OnPlatform Android=150, iOS=140}"
                             WidthRequest="{OnPlatform Android=120, iOS=140}">
                         <VerticalStackLayout Spacing="0" VerticalOptions="Center">
-                            <Image Source="menupersonagens.svg"/>
+                            <Image x:Name="menupersonagens"/>
                             <Label Text="Personagens" FontSize="Small" HorizontalTextAlignment="Center" Margin="10,0"/>
                         </VerticalStackLayout>
                     </Frame>
                     <Frame Style="{StaticResource FrameOptions}" Padding="0" HeightRequest="{OnPlatform Android=150, iOS=140}"
                             WidthRequest="{OnPlatform Android=120, iOS=140}">
                         <VerticalStackLayout Spacing="30" VerticalOptions="Center">
-                            <Image Source="menuarmas.png"/>
+                            <Image Source="menuarmas.svg"
+                                WidthRequest="40"
+                                   />
                             <Label Text="Armas" FontSize="Small" HorizontalTextAlignment="Center" Margin="10,0"/>
                         </VerticalStackLayout>
                     </Frame>

@@ -44,6 +44,7 @@ namespace AppRpgEtec.ViewModels.Disputas
             PesquisarPersonagensCommand = new Command<string>(async (string pesquisa) => { await PesquisarPersonagens(pesquisa); });
             DisputaComArmaCommand = new Command(async () => await ExecutarDisputaArmada());
             DisputaGeralCommand = new Command(async () => await ExecutarDisputaGeral());
+            DisputaComHabilidadeCommand = new Command(async () => await ExecutarDisputaHabilidades());
 
         }
         public async Task PesquisarPersonagens(string textoPesquisaPersonagem)

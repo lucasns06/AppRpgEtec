@@ -50,21 +50,41 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
-		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-	</ItemGroup>
+		<MauiAsset Include="Resources\Raw\**\*.*" LogicalName="%(Filename)%(Extension)" />
 
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <MauiAsset Update="Resources\Raw\dotnet_bot.png">
+	    <Resize>True</Resize>
+	    <BaseSize>300,185</BaseSize>
+	  </MauiAsset>
+	</ItemGroup>
+	
 	<ItemGroup>
 		<PackageReference Include="Azure.Storage.Blobs" Version="12.24.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="8.0.21" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiAsset Update="Resources\Raw\dotnet_bot.png">
+	    <Resize>True</Resize>
+	    <BaseSize>300,185</BaseSize>
+	  </MauiAsset>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Update="Resources\Images\rpgimage.png">
+	    <LogicalName>%(Filename)%(Extension)</LogicalName>
+	  </MauiImage>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -101,6 +121,12 @@
 	  <MauiXaml Update="Views\Usuarios\LoginView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0-android'">
+	  <PackageReference Include="Xamarin.Android.Glide">
+	    <Version>4.16.0.11</Version>
+	  </PackageReference>
 	</ItemGroup>
 
 </Project>

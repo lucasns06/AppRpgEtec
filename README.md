@@ -4,4 +4,5 @@
 
 # AppRpgEtec
 
-Esse projeto é uma aplicação MAUI (NET Multi-Platform App UI) consumindo a minha API de RPG
+Lucas Nascimento
+

@@ -82,6 +82,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiImage Update="Resources\Images\person.png">
+	    <LogicalName>%(Filename)%(Extension)</LogicalName>
+	  </MauiImage>
 	  <MauiImage Update="Resources\Images\rpgimage.png">
 	    <LogicalName>%(Filename)%(Extension)</LogicalName>
 	  </MauiImage>

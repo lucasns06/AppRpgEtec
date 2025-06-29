@@ -1,6 +1,10 @@
 ﻿using AppRpgEtec.ViewModels;
 using AppRpgEtec.Views.Armas;
 using AppRpgEtec.Views.Personagens;
+#if ANDROID
+using Bumptech.Glide;
+using AppRpgEtec.Platforms.Android;
+#endif
 
 namespace AppRpgEtec
 {
@@ -18,6 +22,7 @@ namespace AppRpgEtec
             
             Routing.RegisterRoute("cadPersonagemView", typeof(CadastroPersonagemView));
             Routing.RegisterRoute("cadArmaView", typeof(CadastroArmaView));
+
         }
     }
 }

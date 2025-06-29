@@ -5,8 +5,49 @@
              Title="AboutView">
     <VerticalStackLayout>
         <Label 
-            Text="About view!"
+            Margin="10"
+            FontSize="22"
+            Text="App de RPG"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Label 
+            FontSize="14"
+            Text="Aplicativo de RPG feito na ETEC HAS, usando a API de RPG"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+
+        <VerticalStackLayout 
+            Margin="100"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center">
+            
+            <Label 
+                Margin="10"
+                FontSize="22"
+                Text="Desenvolvido por"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <Image x:Name="eu"
+                   HeightRequest="150"
+                   WidthRequest="150"
+                   Aspect="AspectFill"
+                   />
+            <Label 
+                Margin="10"
+                FontSize="22"
+                Text="Lucas Nascimento"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <Button 
+                Text="Github"
+                BackgroundColor="Yellow"
+                TextColor="Black"
+                Clicked="Button_Clicked"
+                    />
+        </VerticalStackLayout>
+        
     </VerticalStackLayout>
 </ContentPage>

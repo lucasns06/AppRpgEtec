@@ -28,9 +28,7 @@
                 </Grid>
             </Frame>
             <Label Text="Este App oferece recursos para" FontAttributes="Bold" FontSize="Medium"/>
-            <Image x:Name="menuarmas"
-                                WidthRequest="40"
-                                   />
+            
             <ScrollView Orientation="Horizontal">
                 <HorizontalStackLayout>
                     <Frame Style="{StaticResource FrameOptions}" Padding="0" HeightRequest="{OnPlatform Android=150, iOS=140}"
@@ -43,7 +41,7 @@
                     <Frame Style="{StaticResource FrameOptions}" Padding="0" HeightRequest="{OnPlatform Android=150, iOS=140}"
                             WidthRequest="{OnPlatform Android=120, iOS=140}">
                         <VerticalStackLayout Spacing="30" VerticalOptions="Center">
-                            <Image Source="menuarmas.svg"
+                            <Image x:Name="menuarmas"
                                 WidthRequest="40"
                                    />
                             <Label Text="Armas" FontSize="Small" HorizontalTextAlignment="Center" Margin="10,0"/>
@@ -52,7 +50,7 @@
                     <Frame Style="{StaticResource FrameOptions}" Padding="0" HeightRequest="{OnPlatform Android=150, iOS=140}"
                             WidthRequest="{OnPlatform Android=120, iOS=140}">
                         <VerticalStackLayout Spacing="0" VerticalOptions="Center">
-                            <Image Source="menudisputas.png"/>
+                            <Image x:Name="menudisputas"/>
                             <Label Text="Disputas" FontSize="Small"
                             HorizontalTextAlignment="Center" Margin="10,0"/>
                         </VerticalStackLayout>
@@ -60,7 +58,7 @@
                 </HorizontalStackLayout>
             </ScrollView>
             <HorizontalStackLayout Margin="10,100">
-                <Image Source="exit.svg" WidthRequest="50"/>
+                <Image x:Name="exit" WidthRequest="50"/>
                 <Label Text="Sair" Margin="10,0,0,0" VerticalTextAlignment="Center" />
             </HorizontalStackLayout>
         </VerticalStackLayout>

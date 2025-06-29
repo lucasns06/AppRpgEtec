@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppRpgEtec.Views.Armas.ListagemView"
              Title="ListagemView">
-    <Shell.TitleView>
-        <Button Command="{Binding NovaArmaCommand}" WidthRequest="200" BackgroundColor="Green" Text="Nova Arma" HorizontalOptions="End"></Button>
-    </Shell.TitleView>
     <ScrollView>
         <VerticalStackLayout Padding="10, 0, 0, 0" VerticalOptions="FillAndExpand">
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Button Command="{Binding NovaArmaCommand}" WidthRequest="200" BackgroundColor="Green" Text="Nova Arma" HorizontalOptions="End"></Button>
+            </HorizontalStackLayout>
             <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Armas}" SelectedItem="{Binding ArmaSelecionada}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -19,7 +19,7 @@
                             </ViewCell.ContextActions>
                                 <HorizontalStackLayout>
                                     <Image
-                                         Source="arma.png"
+                                         x:Name="arma"
                                          HeightRequest="20"
                                          Aspect="AspectFit"
                                     />

@@ -2,11 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppRpgEtec.DescriptionView"
-             Title="DescriptionView">
-    <VerticalStackLayout>
+             Title="Descrição do Aplicativo">
+    <VerticalStackLayout Padding="20">
         <Label 
-            Text="desc!"
+            Text="Este aplicativo foi desenvolvido para auxiliar jogadores e mestres de RPG a gerenciar campanhas, personagens e recursos de forma prática e intuitiva. Com uma interface moderna e compatível com múltiplas plataformas, oferece ferramentas essenciais para uma experiência completa de RPG."
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            FontSize="Medium"
+            />
     </VerticalStackLayout>
 </ContentPage>

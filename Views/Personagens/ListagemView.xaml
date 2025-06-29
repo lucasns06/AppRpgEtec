@@ -4,9 +4,7 @@
              x:Class="AppRpgEtec.Views.Personagens.ListagemView"
              xmlns:conv="clr-namespace:AppRpgEtec.Converters"
              Title="ListagemView">
-    <Shell.TitleView>
-        <Button Command="{Binding NovoPersonagemCommand}" WidthRequest="200" BackgroundColor="Green" Text="Adicionar Personagem" HorizontalOptions="End"></Button>
-    </Shell.TitleView>
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <conv:PontosVidaConverter x:Key="ColorConvert" />
@@ -14,7 +12,11 @@
     </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout Padding="10, 0, 0, 0" VerticalOptions="FillAndExpand">
-            <Button Text="Zerar Ranking Geral" Command="{Binding ZerarRankingRestaurarVidasGeralCommand}"  FontAttributes="Bold" VerticalOptions="FillAndExpand"/>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Button Command="{Binding NovoPersonagemCommand}" WidthRequest="200" BackgroundColor="Green" Text="Adicionar Personagem" HorizontalOptions="End"></Button>
+                <Button Text="Zerar Ranking Geral" BackgroundColor="DarkViolet" Command="{Binding ZerarRankingRestaurarVidasGeralCommand}"  FontAttributes="Bold" VerticalOptions="FillAndExpand"/>
+            </HorizontalStackLayout>
+
             <ListView x:Name="listView" HasUnevenRows="True" ItemsSource="{Binding Personagens}" SelectedItem="{Binding PersonagemSelecionado}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -24,34 +26,37 @@
                                           Command="{Binding Path=BindingContext.RemoverPersonagemCommand, Source={x:Reference listView}}"
                                           CommandParameter="{Binding .}"></MenuItem>
                             </ViewCell.ContextActions>
-                            <!--<HorizontalStackLayout>
-                                <Image
-                                    Source="person.png"
-                                    HeightRequest="20"
-                                    Aspect="AspectFit"
-                                    />
-                                <StackLayout Padding="10">
-                                    <Label Text="{Binding Nome}" FontSize="18" FontAttributes="Bold"/>
-                                    <Label Text="{Binding PontosVida}" FontSize="14"/>
-                                </StackLayout>
-                            </HorizontalStackLayout> -->
                             <Grid Padding="15">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
 
-                                <BoxView Grid.RowSpan="2" HeightRequest="50" WidthRequest="20"
-                                         Color="{Binding PontosVida, Converter={StaticResource ColorConvert}}"/>
-                                
-                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Nome}" FontSize="18" FontAttributes="Bold"/>
-                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding PontosVida}" FontSize="14"/>
+                                <Image 
+                                    Grid.RowSpan="2" 
+                                    Grid.Column="0"
+                                    WidthRequest="30"
+                                    Aspect="AspectFit"
+                                    StyleId="person"
+                                    x:Name="person" />
+
+                                <Label Grid.Row="0" Grid.Column="1"
+                                    Text="{Binding Nome}" FontSize="18" FontAttributes="Bold" />
+
+                                <Label Grid.Row="1" Grid.Column="1"
+                                    Text="{Binding PontosVida}" FontSize="14" />
+
+                                <BoxView Grid.RowSpan="2" Grid.Column="2"
+                                     WidthRequest="30"
+                                     HorizontalOptions="End"
+                                     Color="{Binding PontosVida, Converter={StaticResource ColorConvert}}" />
                             </Grid>
+
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
